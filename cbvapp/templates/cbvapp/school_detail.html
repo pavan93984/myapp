@@ -1,0 +1,18 @@
+{% extends "cbvapp/base.html" %}
+{% block content %}
+    <h1>{{ school_details.school_name }} Detail page</h1>
+    <p>school name = {{ school_details.school_name }}</p>
+    <p>principal = {{ school_details.principal }}</p>
+    <p>place = {{ school_details.place }}</p>
+    <hr>
+    <h1 style="font-size: 40px; color: brown;">student details </h1>
+        {% for j in school_details.students.all %}
+           <h1><p style="color: steelblue" > Student_Name :{{ j.std_name }}</p></h1>
+            <p> Student_Age :{{ j.age }}</p>
+            <p> Student_Marhs :{{ j.marks }}</p>
+            <p> Student_Grade :{{ j.grade }}</p>
+        {% endfor %}
+        
+        <a href="{% url 'update' pk=school_details.pk %}" class="btn btn-success">update</a>
+        <a href="{% url 'delete' pk=school_details.pk %}" class="btn btn-danger">delete</a>
+{% endblock %}

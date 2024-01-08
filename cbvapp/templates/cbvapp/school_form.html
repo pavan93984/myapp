@@ -1,0 +1,19 @@
+{% extends "cbvapp/base.html" %}
+{% block content %}
+    {% if form.instance.pk %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-success" type="submit" value="update">
+        </form>
+        
+    {% else %}
+        <h1>Add new school heat..!</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-worning" type="submit" value="add">
+        </form>
+    {% endif %}
+
+{% endblock %} 
